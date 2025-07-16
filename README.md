@@ -1,2 +1,5 @@
-# NIAS-IA-treinamento-2025-1
-Repositório do Treinamento da Turma 2025-1
+# NIAS-IA-treinamento
+Repositório do Treinamento da Equipe NIAS-IA
+
+## Apostila
+Última atualização: Julho de 2025
