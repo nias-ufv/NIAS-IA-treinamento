@@ -11,4 +11,5 @@
 Última atualização: Julho de 2025
 
 # Contribuidores
-1. @
+1. @rodolpho-neves
+2. 
