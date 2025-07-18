@@ -4,6 +4,7 @@
 2. Cada trainee deverá criar uma branch individual, com seu nome, para realizar o upload de seus códigos.
 3. Todos os notebooks devem estar em uma pasta com o nome de seu usuário.
 4. Ao final do treinamento, o trainee deve fazer um pull request para o `main` branch e atualizar o `readme.md` para colocar seu nome como contribuidor.
+5. Um workflow no Github Actions vai executar a verificação automática. Se qualquer outro arquivo for modificado, o pull request falhará. Caso contrário, o pull request será aceito para a branch `main`.
 
 
 # Apostila
