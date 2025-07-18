@@ -1,0 +1,47 @@
+name: Validar Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
+
+jobs:
+  validate-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Necessário para comparar branches
+
+      - name: Obter o Nome de Usuário do Autor do PR
+        id: pr_author
+        run: echo "AUTHOR=${{ github.event.pull_request.user.login }}" >> $GITHUB_OUTPUT
+
+      - name: Verificar Arquivos Modificados
+        run: |
+          PR_AUTHOR=${{ steps.pr_author.outputs.AUTHOR }}
+          ONLY_ALLOWED_FILES=true
+          INVALID_FILES=""
+
+          # Obtém a lista de arquivos modificados entre o branch base (main) e o branch do PR
+          MODIFIED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
+
+          echo "Arquivos modificados:"
+          echo "$MODIFIED_FILES"
+
+          for FILE in $MODIFIED_FILES; do
+            if [[ "$FILE" != "$PR_AUTHOR/"* ]] && [[ "$FILE" != "README.md" ]]; then
+              ONLY_ALLOWED_FILES=false
+              INVALID_FILES+="- $FILE\n"
+            fi
+          done
+
+          if [ "$ONLY_ALLOWED_FILES" = "false" ]; then
+            echo "::error title=Arquivos Inválidos::O Pull Request contém arquivos modificados fora da sua pasta ($PR_AUTHOR/) ou do README.md. Por favor, revise."
+            echo -e "Arquivos não permitidos:\n$INVALID_FILES"
+            exit 1
+          else
+            echo "Todos os arquivos modificados estão na sua pasta ou no README.md. Verificação aprovada!"
+          fi
