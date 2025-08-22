@@ -26,10 +26,35 @@ from sklearn.model_selection import train_test_split  # Adicione esta importaç�
 #baseline 76.555%
 #modelo 3 76.794%
 
-#%% abrir o datase de treino e teste
+import requests
+import pandas as pd
 
+# URLs dos arquivos de dados
+train_url = 'https://raw.githubusercontent.com/lsabreu-ai/titanic_dataset/main/train.csv'
+test_url = 'https://raw.githubusercontent.com/lsabreu-ai/titanic_dataset/main/test.csv'
+
+# Função para baixar e salvar o arquivo
+def download_file(url, filename):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Lança um erro para status de resposta HTTP ruim
+        with open(filename, 'wb') as f:
+            f.write(response.content)
+        print(f"Arquivo '{filename}' baixado com sucesso.")
+    except requests.exceptions.RequestException as e:
+        print(f"Erro ao baixar o arquivo '{filename}': {e}")
+
+# Baixar os arquivos
+download_file(train_url, 'train.csv')
+download_file(test_url, 'test.csv')
+
+# Agora, os arquivos estão no seu diretório de trabalho e você pode lê-los
 train = pd.read_csv('train.csv')
 test = pd.read_csv('test.csv')
+
+print("\nArquivos carregados no Pandas com sucesso.")
+print("Primeiras 5 linhas do train.csv:")
+print(train.head())
 
 #%% pre-processamento dos dados
 
