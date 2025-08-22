@@ -8,8 +8,8 @@
 
 
 # Apostila
-Última atualização: Julho de 2025
+Última atualização: Agosto de 2025
 
 # Contribuidores
 1. @rodolpho-neves
-2. 
+2. @lsabreu-ia 
