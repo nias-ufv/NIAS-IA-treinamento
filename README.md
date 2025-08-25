@@ -12,5 +12,5 @@
 
 # Contribuidores
 1. @rodolpho-neves
-2. 
+2. Marcos Maulaz Cardoso Bhering
 3. @lsabreu-ia
