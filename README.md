@@ -14,3 +14,4 @@
 1. @rodolpho-neves
 2. Marcos Maulaz Cardoso Bhering
 3. @lsabreu-ia
+4. thiagocosouza
