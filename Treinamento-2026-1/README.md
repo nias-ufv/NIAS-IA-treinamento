@@ -95,3 +95,17 @@ Créditos: @elgusta
     4. Uso do OneHotEncoder para fazer o encoding das variáveis 'Sex' e 'Embarked', que são categóricas, para evitar a perda de informação;
     5. Cross Validation para analisar qual modelo obteve maior acurácia (Random Forest ou Gradient Boosting).
 - Créditos: @lavinianame04
+
+#### Luiz Octávio Garcia Teixeira
+- Problema escolhido: Titanic - Machine Learning from Disaster(capítulo 8)
+- O que precisa ser resolvido: Aprimorar o modelo inicialmente produzido no capítulo 6 aplicando as técnicas dos capítulos 7 e 8
+- Melhor resultado obtido na submissão: 85.47%
+- Técnicas utilizadas para resolver o problema: 
+    1. Uso do o SimpleImputer para preencher os dados ausentes, com média, mediana ou moda;
+    2. Aplicação do One Hot Encoder e Ordinal Encoder para as colunas de variáveis categóricas;
+    3. Utilização do ColumnTransformer e de Pipelines para aninhar as etapas 1 e 2, facilitando o entendimento do código e a reprodução posteriormente;
+    4. Criação dos modelos utilizando Random Forest e Gradient Boosting;
+    5. Utilização do Cross-Validation para obter uma avaliação menos enviesada dos dois modelos, utilizando accuracy como métrica;
+    6. Por fim, comparação dos dois modelos com base nos resultados.
+- Créditos: @Luiz-032
+
