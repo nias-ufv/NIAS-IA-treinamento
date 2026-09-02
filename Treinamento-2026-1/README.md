@@ -96,6 +96,21 @@ Créditos: @elgusta
     5. Cross Validation para analisar qual modelo obteve maior acurácia (Random Forest ou Gradient Boosting).
 - Créditos: @lavinianame04
 
+
+
+####Glêison
+
+-Problema escolhido: Titanic - Machine Learning from Disaster
+-O que precisa ser resolvido: Predizer se uma determinada pessoa sobrevive ou não ao acidente do Titanic
+-Melhor resultado obtido na submissão (validação): 73,4% de acurácia
+-Técnicas utilizadas para resolver o problema:
+   1.Descarte de todas as colunas não numéricas ('name', 'sex', 'ticket', 'cabin' e 'embarked'), mantendo apenas 'pclass', 'age', 'sibsp', 'parch' e 'fare'
+   2.Remoção das linhas com valores ausentes no conjunto de treino (dropna)
+   3.Imputação de zero nos valores ausentes do conjunto de teste (fillna(0))
+   4.Treinamento de um RandomForestClassifier, validado com split de 80/20 e depois retreinado com 100% dos dados de treino para gerar a submissão final
+-Observação sobre a diferença entre acurácia local e Kaggle:
+	A acurácia de 73,4% mede o modelo nos 20% de validação tirados do próprio train.csv. O score do Kaggle (0,54066) avalia no test.csv real, onde a idade 			ausente era preenchida com fillna(0) — o modelo interpretava Age = 0 como recém-nascido e previa sobrevivência para quase todos esses casos, mesmo sendo 		majoritariamente passageiros de 3ª classe (baixa sobrevivência real). Esse bug só afetava o teste, não a validação, por isso os dois números não são 			comparáveis diretamente.
+-Créditos: @GleisonAF
 #### Luiz Octávio Garcia Teixeira
 - Problema escolhido: Titanic - Machine Learning from Disaster(capítulo 8)
 - O que precisa ser resolvido: Aprimorar o modelo inicialmente produzido no capítulo 6 aplicando as técnicas dos capítulos 7 e 8
