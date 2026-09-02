@@ -111,3 +111,16 @@ Créditos: @elgusta
 -Observação sobre a diferença entre acurácia local e Kaggle:
 	A acurácia de 73,4% mede o modelo nos 20% de validação tirados do próprio train.csv. O score do Kaggle (0,54066) avalia no test.csv real, onde a idade 			ausente era preenchida com fillna(0) — o modelo interpretava Age = 0 como recém-nascido e previa sobrevivência para quase todos esses casos, mesmo sendo 		majoritariamente passageiros de 3ª classe (baixa sobrevivência real). Esse bug só afetava o teste, não a validação, por isso os dois números não são 			comparáveis diretamente.
 -Créditos: @GleisonAF
+#### Luiz Octávio Garcia Teixeira
+- Problema escolhido: Titanic - Machine Learning from Disaster(capítulo 8)
+- O que precisa ser resolvido: Aprimorar o modelo inicialmente produzido no capítulo 6 aplicando as técnicas dos capítulos 7 e 8
+- Melhor resultado obtido na submissão: 85.47%
+- Técnicas utilizadas para resolver o problema: 
+    1. Uso do o SimpleImputer para preencher os dados ausentes, com média, mediana ou moda;
+    2. Aplicação do One Hot Encoder e Ordinal Encoder para as colunas de variáveis categóricas;
+    3. Utilização do ColumnTransformer e de Pipelines para aninhar as etapas 1 e 2, facilitando o entendimento do código e a reprodução posteriormente;
+    4. Criação dos modelos utilizando Random Forest e Gradient Boosting;
+    5. Utilização do Cross-Validation para obter uma avaliação menos enviesada dos dois modelos, utilizando accuracy como métrica;
+    6. Por fim, comparação dos dois modelos com base nos resultados.
+- Créditos: @Luiz-032
+
